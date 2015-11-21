@@ -123,6 +123,11 @@ namespace MoodleHelper
             loadSettings();
         }
 
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void btlSelectMoodle_Click(object sender, EventArgs e)
         {
             // Launch Option to select Moodle Directory Location

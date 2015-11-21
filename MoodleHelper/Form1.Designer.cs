@@ -34,9 +34,9 @@
             this.tbMoodle = new System.Windows.Forms.TextBox();
             this.btnSelectPhp = new System.Windows.Forms.Button();
             this.btlSelectMoodle = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnPurgeCache = new System.Windows.Forms.Button();
+            this.btnCron = new System.Windows.Forms.Button();
+            this.btnPhpUnit = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.openPhpFile = new System.Windows.Forms.OpenFileDialog();
             this.openMoodleDir = new System.Windows.Forms.FolderBrowserDialog();
@@ -106,32 +106,35 @@
             this.btlSelectMoodle.UseVisualStyleBackColor = true;
             this.btlSelectMoodle.Click += new System.EventHandler(this.btlSelectMoodle_Click);
             // 
-            // button1
+            // btnPurgeCache
             // 
-            this.button1.Location = new System.Drawing.Point(15, 128);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Purge Cache";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnPurgeCache.Location = new System.Drawing.Point(15, 128);
+            this.btnPurgeCache.Name = "btnPurgeCache";
+            this.btnPurgeCache.Size = new System.Drawing.Size(111, 23);
+            this.btnPurgeCache.TabIndex = 6;
+            this.btnPurgeCache.Text = "Purge Cache";
+            this.btnPurgeCache.UseVisualStyleBackColor = true;
+            this.btnPurgeCache.Click += new System.EventHandler(this.btnPurgeCache_Click);
             // 
-            // button2
+            // btnCron
             // 
-            this.button2.Location = new System.Drawing.Point(15, 157);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(111, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Run Cron";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCron.Location = new System.Drawing.Point(15, 157);
+            this.btnCron.Name = "btnCron";
+            this.btnCron.Size = new System.Drawing.Size(111, 23);
+            this.btnCron.TabIndex = 7;
+            this.btnCron.Text = "Run Cron";
+            this.btnCron.UseVisualStyleBackColor = true;
+            this.btnCron.Click += new System.EventHandler(this.btnCron_Click);
             // 
-            // button3
+            // btnPhpUnit
             // 
-            this.button3.Location = new System.Drawing.Point(15, 186);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(111, 23);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Run PHPUnit Tests";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnPhpUnit.Location = new System.Drawing.Point(15, 186);
+            this.btnPhpUnit.Name = "btnPhpUnit";
+            this.btnPhpUnit.Size = new System.Drawing.Size(111, 23);
+            this.btnPhpUnit.TabIndex = 8;
+            this.btnPhpUnit.Text = "Run PHPUnit Tests";
+            this.btnPhpUnit.UseVisualStyleBackColor = true;
+            this.btnPhpUnit.Click += new System.EventHandler(this.btnPhpUnit_Click);
             // 
             // label3
             // 
@@ -165,13 +168,14 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
-            this.settingsToolStripMenuItem.Text = "Settings";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.settingsToolStripMenuItem.Text = "Reset Settings";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // actionsToolStripMenuItem
@@ -218,9 +222,9 @@
             this.ClientSize = new System.Drawing.Size(505, 261);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnPhpUnit);
+            this.Controls.Add(this.btnCron);
+            this.Controls.Add(this.btnPurgeCache);
             this.Controls.Add(this.btlSelectMoodle);
             this.Controls.Add(this.btnSelectPhp);
             this.Controls.Add(this.tbMoodle);
@@ -246,9 +250,9 @@
         private System.Windows.Forms.TextBox tbMoodle;
         private System.Windows.Forms.Button btnSelectPhp;
         private System.Windows.Forms.Button btlSelectMoodle;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnPurgeCache;
+        private System.Windows.Forms.Button btnCron;
+        private System.Windows.Forms.Button btnPhpUnit;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.OpenFileDialog openPhpFile;
         private System.Windows.Forms.FolderBrowserDialog openMoodleDir;

@@ -30,6 +30,11 @@ namespace MoodleHelper
             this.showConsole = Properties.Settings.Default.keepConsole;
 
             // Place into textbox
+            updateForm();
+        }
+
+        private void updateForm()
+        {
             tbMoodle.Text = this.moodleDir;
             tbPhp.Text = this.phpPath;
         }
@@ -37,6 +42,38 @@ namespace MoodleHelper
         private void saveSettings()
         {
             Properties.Settings.Default.Save();
+        }
+
+        private bool checkForMoodleDir()
+        {
+            if (this.moodleDir != null && this.moodleDir != "")
+                return true;
+            return false;
+        }
+
+        private bool checkForPhp()
+        {
+            if (this.phpPath != null && this.phpPath != "")
+                return true;
+            return false;
+        }
+
+        private bool checkForPhpAndMoodle()
+        {
+            if (!checkForPhp())
+            {
+                //No PHP Executable located
+                MessageBox.Show("No PHP Executable Found, Please define a PHP Executable", "No PHP Executable Found!");
+                return false;
+            }
+            if (!checkForMoodleDir())
+            {
+                //No Moodle Directory Found
+                MessageBox.Show("No Moodle Directory is Found. Please define a Moodle Directory!", "No Moodle Dir Found!");
+                return false;
+            }
+            
+            return true;
         }
 
         private void btnSelectPhp_Click(object sender, EventArgs e)
@@ -47,10 +84,43 @@ namespace MoodleHelper
             {
                 // Handle and save it
                 this.phpPath = openPhpFile.FileName;
-                tbPhp.Text = this.phpPath;
                 Properties.Settings.Default.phpPath = this.phpPath;
+                updateForm();
                 saveSettings();
             }
+        }
+
+        private void btnPurgeCache_Click(object sender, EventArgs e)
+        {
+            if (!checkForPhpAndMoodle())
+                return;
+        }
+
+        private void btnCron_Click(object sender, EventArgs e)
+        {
+            if (!checkForPhpAndMoodle())
+                return;
+        }
+
+        private void btnPhpUnit_Click(object sender, EventArgs e)
+        {
+            if (!checkForPhpAndMoodle())
+                return;
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you wish to clear your settings? This action cannot be undone!", "Clear Settings", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                // Clear Settings
+                Properties.Settings.Default.Reset();
+                MessageBox.Show("Settings have been cleared!", "Cleared Settings");
+            }  else if (result != DialogResult.No)
+            {
+                MessageBox.Show("An Unknown Error has occurred!", "Unknown Error");
+            }
+            loadSettings();
         }
 
         private void btlSelectMoodle_Click(object sender, EventArgs e)
@@ -61,8 +131,8 @@ namespace MoodleHelper
             {
                 //Handle and save it
                 this.moodleDir = openMoodleDir.SelectedPath;
-                tbMoodle.Text = this.moodleDir;
                 Properties.Settings.Default.moodleDir = this.moodleDir;
+                updateForm();
                 saveSettings();
             }
         }

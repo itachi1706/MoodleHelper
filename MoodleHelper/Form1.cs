@@ -16,5 +16,17 @@ namespace MoodleHelper
         {
             InitializeComponent();
         }
+
+        private void btnSelectPhp_Click(object sender, EventArgs e)
+        {
+            // Launch Option to select PHP File location
+            DialogResult result = openPhpFile.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                // Handle and save it
+                string filename = openPhpFile.FileName;
+                tbPhp.Text = filename;
+            }
+        }
     }
 }

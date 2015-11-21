@@ -145,6 +145,17 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "Quick Moodle Actions";
             // 
+            // openPhpFile
+            // 
+            this.openPhpFile.DefaultExt = "exe";
+            this.openPhpFile.Filter = "PHP Executable Files (*.exe)|*.exe|All Files|*.*";
+            this.openPhpFile.Title = "Select a PHP Executable";
+            // 
+            // openMoodleDir
+            // 
+            this.openMoodleDir.Description = "Select the root folder to your Moodle Code";
+            this.openMoodleDir.RootFolder = System.Environment.SpecialFolder.MyComputer;
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -168,14 +179,14 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.settingsToolStripMenuItem.Text = "Reset Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 

@@ -28,5 +28,17 @@ namespace MoodleHelper
                 tbPhp.Text = filename;
             }
         }
+
+        private void btlSelectMoodle_Click(object sender, EventArgs e)
+        {
+            // Launch Option to select Moodle Directory Location
+            DialogResult result = openMoodleDir.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                //Handle and save it
+                string filename = openMoodleDir.SelectedPath;
+                tbMoodle.Text = filename;
+            }
+        }
     }
 }

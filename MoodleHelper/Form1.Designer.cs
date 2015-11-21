@@ -48,6 +48,7 @@
             this.purgeCacheToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.executeCronToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.runPHPUnitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label4 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,21 +72,23 @@
             // 
             // tbPhp
             // 
+            this.tbPhp.Enabled = false;
             this.tbPhp.Location = new System.Drawing.Point(76, 41);
             this.tbPhp.Name = "tbPhp";
-            this.tbPhp.Size = new System.Drawing.Size(221, 20);
+            this.tbPhp.Size = new System.Drawing.Size(389, 20);
             this.tbPhp.TabIndex = 2;
             // 
             // tbMoodle
             // 
+            this.tbMoodle.Enabled = false;
             this.tbMoodle.Location = new System.Drawing.Point(76, 68);
             this.tbMoodle.Name = "tbMoodle";
-            this.tbMoodle.Size = new System.Drawing.Size(221, 20);
+            this.tbMoodle.Size = new System.Drawing.Size(389, 20);
             this.tbMoodle.TabIndex = 3;
             // 
             // btnSelectPhp
             // 
-            this.btnSelectPhp.Location = new System.Drawing.Point(304, 37);
+            this.btnSelectPhp.Location = new System.Drawing.Point(471, 36);
             this.btnSelectPhp.Name = "btnSelectPhp";
             this.btnSelectPhp.Size = new System.Drawing.Size(22, 23);
             this.btnSelectPhp.TabIndex = 4;
@@ -95,12 +98,13 @@
             // 
             // btlSelectMoodle
             // 
-            this.btlSelectMoodle.Location = new System.Drawing.Point(303, 66);
+            this.btlSelectMoodle.Location = new System.Drawing.Point(470, 65);
             this.btlSelectMoodle.Name = "btlSelectMoodle";
             this.btlSelectMoodle.Size = new System.Drawing.Size(23, 23);
             this.btlSelectMoodle.TabIndex = 5;
             this.btlSelectMoodle.Text = "...";
             this.btlSelectMoodle.UseVisualStyleBackColor = true;
+            this.btlSelectMoodle.Click += new System.EventHandler(this.btlSelectMoodle_Click);
             // 
             // button1
             // 
@@ -145,7 +149,7 @@
             this.actionsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(352, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(505, 24);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -183,13 +187,13 @@
             // purgeCacheToolStripMenuItem
             // 
             this.purgeCacheToolStripMenuItem.Name = "purgeCacheToolStripMenuItem";
-            this.purgeCacheToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.purgeCacheToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.purgeCacheToolStripMenuItem.Text = "Purge Cache";
             // 
             // executeCronToolStripMenuItem
             // 
             this.executeCronToolStripMenuItem.Name = "executeCronToolStripMenuItem";
-            this.executeCronToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.executeCronToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.executeCronToolStripMenuItem.Text = "Execute Cron";
             // 
             // runPHPUnitToolStripMenuItem
@@ -198,11 +202,21 @@
             this.runPHPUnitToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.runPHPUnitToolStripMenuItem.Text = "Run PHP Unit Tests";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(220, 148);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(172, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "COMING SOON. CONSOLE VIEW";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(352, 261);
+            this.ClientSize = new System.Drawing.Size(505, 261);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -246,6 +260,7 @@
         private System.Windows.Forms.ToolStripMenuItem purgeCacheToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem executeCronToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem runPHPUnitToolStripMenuItem;
+        private System.Windows.Forms.Label label4;
     }
 }
 

@@ -12,9 +12,31 @@ namespace MoodleHelper
 {
     public partial class Form1 : Form
     {
+
+        string phpPath, moodleDir;
+        bool showConsole = false;
+
         public Form1()
         {
             InitializeComponent();
+            loadSettings();
+        }
+
+        private void loadSettings()
+        {
+            // Load any settings if found
+            this.phpPath = Properties.Settings.Default.phpPath;
+            this.moodleDir = Properties.Settings.Default.moodleDir;
+            this.showConsole = Properties.Settings.Default.keepConsole;
+
+            // Place into textbox
+            tbMoodle.Text = this.moodleDir;
+            tbPhp.Text = this.phpPath;
+        }
+
+        private void saveSettings()
+        {
+            Properties.Settings.Default.Save();
         }
 
         private void btnSelectPhp_Click(object sender, EventArgs e)
@@ -24,8 +46,10 @@ namespace MoodleHelper
             if (result == DialogResult.OK)
             {
                 // Handle and save it
-                string filename = openPhpFile.FileName;
-                tbPhp.Text = filename;
+                this.phpPath = openPhpFile.FileName;
+                tbPhp.Text = this.phpPath;
+                Properties.Settings.Default.phpPath = this.phpPath;
+                saveSettings();
             }
         }
 
@@ -36,8 +60,10 @@ namespace MoodleHelper
             if (result == DialogResult.OK)
             {
                 //Handle and save it
-                string filename = openMoodleDir.SelectedPath;
-                tbMoodle.Text = filename;
+                this.moodleDir = openMoodleDir.SelectedPath;
+                tbMoodle.Text = this.moodleDir;
+                Properties.Settings.Default.moodleDir = this.moodleDir;
+                saveSettings();
             }
         }
     }

@@ -14,7 +14,7 @@ namespace MoodleHelper
     {
 
         string phpPath, moodleDir;
-        bool showConsole = false;
+        bool keepConsole = false;
 
         public Form1()
         {
@@ -27,7 +27,7 @@ namespace MoodleHelper
             // Load any settings if found
             this.phpPath = Properties.Settings.Default.phpPath;
             this.moodleDir = Properties.Settings.Default.moodleDir;
-            this.showConsole = Properties.Settings.Default.keepConsole;
+            this.keepConsole = Properties.Settings.Default.keepConsole;
 
             // Place into textbox
             updateForm();
@@ -84,27 +84,23 @@ namespace MoodleHelper
             return true;
         }
 
+        private void startCommandPrompt(string command)
+        {
+            System.Diagnostics.Process.Start("cmd.exe", command);
+        }
+
+        private string getCommandStringStart()
+        {
+            if (!this.keepConsole)
+            {
+                return "/C ";
+            }
+            return "/K ";
+        }
+
         private void btnSelectPhp_Click(object sender, EventArgs e)
         {
             selectPHPDir();
-        }
-
-        private void btnPurgeCache_Click(object sender, EventArgs e)
-        {
-            if (!checkForPhpAndMoodle())
-                return;
-        }
-
-        private void btnCron_Click(object sender, EventArgs e)
-        {
-            if (!checkForPhpAndMoodle())
-                return;
-        }
-
-        private void btnPhpUnit_Click(object sender, EventArgs e)
-        {
-            if (!checkForPhpAndMoodle())
-                return;
         }
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -158,6 +154,31 @@ namespace MoodleHelper
                 updateForm();
                 saveSettings();
             }
+        }
+
+        private void btnPurgeCache_Click(object sender, EventArgs e)
+        {
+            if (!checkForPhpAndMoodle())
+                return;
+            string cmd = getCommandStringStart();
+            cmd += "\"" + this.phpPath + "\" \"" + this.moodleDir + "\\admin\\cli\\purgecaches.php\"";
+            startCommandPrompt(cmd);
+        }
+
+        private void btnCron_Click(object sender, EventArgs e)
+        {
+            if (!checkForPhpAndMoodle())
+                return;
+            string cmd = getCommandStringStart();
+            cmd += "\"" + this.phpPath + "\" \"" + this.moodleDir + "\\admin\\cli\\cron.php\"";
+            startCommandPrompt(cmd);
+        }
+
+        private void btnPhpUnit_Click(object sender, EventArgs e)
+        {
+            if (!checkForPhpAndMoodle())
+                return;
+            MessageBox.Show("COMING SOON", "COMING SOON");
         }
     }
 }

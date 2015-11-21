@@ -63,13 +63,21 @@ namespace MoodleHelper
             if (!checkForPhp())
             {
                 //No PHP Executable located
-                MessageBox.Show("No PHP Executable Found, Please define a PHP Executable", "No PHP Executable Found!");
+                DialogResult result = MessageBox.Show("No PHP Executable Found! Please OK to define a PHP Executable.", "No PHP Executable Found!", MessageBoxButtons.OKCancel);
+                if (result == DialogResult.OK)
+                {
+                    selectPHPDir();
+                }
                 return false;
             }
             if (!checkForMoodleDir())
             {
                 //No Moodle Directory Found
-                MessageBox.Show("No Moodle Directory is Found. Please define a Moodle Directory!", "No Moodle Dir Found!");
+                DialogResult result = MessageBox.Show("No Moodle Directory Found! Please OK to define a Moodle Directory.", "No Moodle Dir Found!", MessageBoxButtons.OKCancel);
+                if (result == DialogResult.OK)
+                {
+                    selectMoodleDir();
+                }
                 return false;
             }
             
@@ -78,16 +86,7 @@ namespace MoodleHelper
 
         private void btnSelectPhp_Click(object sender, EventArgs e)
         {
-            // Launch Option to select PHP File location
-            DialogResult result = openPhpFile.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                // Handle and save it
-                this.phpPath = openPhpFile.FileName;
-                Properties.Settings.Default.phpPath = this.phpPath;
-                updateForm();
-                saveSettings();
-            }
+            selectPHPDir();
         }
 
         private void btnPurgeCache_Click(object sender, EventArgs e)
@@ -130,6 +129,11 @@ namespace MoodleHelper
 
         private void btlSelectMoodle_Click(object sender, EventArgs e)
         {
+            selectMoodleDir();
+        }
+
+        private void selectMoodleDir()
+        {
             // Launch Option to select Moodle Directory Location
             DialogResult result = openMoodleDir.ShowDialog();
             if (result == DialogResult.OK)
@@ -137,6 +141,20 @@ namespace MoodleHelper
                 //Handle and save it
                 this.moodleDir = openMoodleDir.SelectedPath;
                 Properties.Settings.Default.moodleDir = this.moodleDir;
+                updateForm();
+                saveSettings();
+            }
+        }
+
+        private void selectPHPDir()
+        {
+            // Launch Option to select PHP File location
+            DialogResult result = openPhpFile.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                // Handle and save it
+                this.phpPath = openPhpFile.FileName;
+                Properties.Settings.Default.phpPath = this.phpPath;
                 updateForm();
                 saveSettings();
             }

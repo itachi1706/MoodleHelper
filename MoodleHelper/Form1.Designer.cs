@@ -194,18 +194,21 @@
             this.purgeCacheToolStripMenuItem.Name = "purgeCacheToolStripMenuItem";
             this.purgeCacheToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.purgeCacheToolStripMenuItem.Text = "Purge Cache";
+            this.purgeCacheToolStripMenuItem.Click += new System.EventHandler(this.btnPurgeCache_Click);
             // 
             // executeCronToolStripMenuItem
             // 
             this.executeCronToolStripMenuItem.Name = "executeCronToolStripMenuItem";
             this.executeCronToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.executeCronToolStripMenuItem.Text = "Execute Cron";
+            this.executeCronToolStripMenuItem.Click += new System.EventHandler(this.btnCron_Click);
             // 
             // runPHPUnitToolStripMenuItem
             // 
             this.runPHPUnitToolStripMenuItem.Name = "runPHPUnitToolStripMenuItem";
             this.runPHPUnitToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.runPHPUnitToolStripMenuItem.Text = "Run PHP Unit Tests";
+            this.runPHPUnitToolStripMenuItem.Click += new System.EventHandler(this.btnPhpUnit_Click);
             // 
             // label4
             // 

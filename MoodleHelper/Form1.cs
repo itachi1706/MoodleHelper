@@ -164,35 +164,11 @@ namespace MoodleHelper
             startCommandPrompt(cmd);
         }
 
-        private void btnSelectPhp_Click(object sender, EventArgs e)
-        {
-            selectPHPDir();
-        }
+        
 
-        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Are you sure you wish to clear your settings? This action cannot be undone!", "Clear Settings", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
-            {
-                // Clear Settings
-                Properties.Settings.Default.Reset();
-                MessageBox.Show("Settings have been cleared!", "Cleared Settings");
-            }  else if (result != DialogResult.No)
-            {
-                MessageBox.Show("An Unknown Error has occurred!", "Unknown Error");
-            }
-            loadSettings();
-        }
+        
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void btlSelectMoodle_Click(object sender, EventArgs e)
-        {
-            selectMoodleDir();
-        }
+        
 
         private void selectMoodleDir()
         {
@@ -222,31 +198,32 @@ namespace MoodleHelper
             }
         }
 
-        private void btnPurgeCache_Click(object sender, EventArgs e)
+        /* Menu Items On Click */
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!checkForPhpAndMoodle())
-                return;
-            string cmd = getCommandStringStart();
-            cmd += "\"\"" + this.phpPath + "\" \"" + this.moodleDir + "\\admin\\cli\\purge_caches.php\"\"";
-            startCommandPrompt(cmd);
+            DialogResult result = MessageBox.Show("Are you sure you wish to clear your settings? This action cannot be undone!", "Clear Settings", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                // Clear Settings
+                Properties.Settings.Default.Reset();
+                MessageBox.Show("Settings have been cleared!", "Cleared Settings");
+            }
+            else if (result != DialogResult.No)
+            {
+                MessageBox.Show("An Unknown Error has occurred!", "Unknown Error");
+            }
+            loadSettings();
         }
-
-        private void btnCron_Click(object sender, EventArgs e)
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!checkForPhpAndMoodle())
-                return;
-            string cmd = getCommandStringStart();
-            cmd += "\"\"" + this.phpPath + "\" \"" + this.moodleDir + "\\admin\\cli\\cron.php\"\"";
-            startCommandPrompt(cmd);
+            Application.Exit();
         }
-
         private void enabledToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.keepConsole = false;
             Properties.Settings.Default.Save();
             loadSettings();
         }
-
         private void disabledToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.keepConsole = true;
@@ -262,7 +239,6 @@ namespace MoodleHelper
             }
             initPHPUnitTests();
         }
-
         private void pHPUnitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!checkForPhpAndMoodle())
@@ -271,23 +247,6 @@ namespace MoodleHelper
             }
             runFullPHPUnitTests();
         }
-
-        private void btnPhpUnitWithArgs_Click(object sender, EventArgs e)
-        {
-            if (!checkForPhpAndMoodle())
-            {
-                return;
-            }
-            string args = tbPHPArgs.Text;
-            if (args != null && args != "")
-            {
-                runFullPHPUnitTests(args);
-            } else
-            {
-                runFullPHPUnitTests();
-            }
-        }
-
         private void moodleSiteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://docs.moodle.org/dev/Main_Page");
@@ -308,11 +267,52 @@ namespace MoodleHelper
             System.Diagnostics.Process.Start("http://php.net/manual/en/index.php");
         }
 
+        /* Buttons Click Listeners */
         private void btnPhpUnit_Click(object sender, EventArgs e)
         {
             if (!checkForPhpAndMoodle())
                 return;
             runBothInitAndPhpUnitTests();
+        }
+        private void btnPhpUnitWithArgs_Click(object sender, EventArgs e)
+        {
+            if (!checkForPhpAndMoodle())
+            {
+                return;
+            }
+            string args = tbPHPArgs.Text;
+            if (args != null && args != "")
+            {
+                runFullPHPUnitTests(args);
+            }
+            else
+            {
+                runFullPHPUnitTests();
+            }
+        }
+        private void btnPurgeCache_Click(object sender, EventArgs e)
+        {
+            if (!checkForPhpAndMoodle())
+                return;
+            string cmd = getCommandStringStart();
+            cmd += "\"\"" + this.phpPath + "\" \"" + this.moodleDir + "\\admin\\cli\\purge_caches.php\"\"";
+            startCommandPrompt(cmd);
+        }
+        private void btnCron_Click(object sender, EventArgs e)
+        {
+            if (!checkForPhpAndMoodle())
+                return;
+            string cmd = getCommandStringStart();
+            cmd += "\"\"" + this.phpPath + "\" \"" + this.moodleDir + "\\admin\\cli\\cron.php\"\"";
+            startCommandPrompt(cmd);
+        }
+        private void btnSelectPhp_Click(object sender, EventArgs e)
+        {
+            selectPHPDir();
+        }
+        private void btlSelectMoodle_Click(object sender, EventArgs e)
+        {
+            selectMoodleDir();
         }
     }
 }

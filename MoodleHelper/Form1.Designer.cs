@@ -48,6 +48,9 @@
             this.purgeCacheToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.executeCronToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.runPHPUnitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.initToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pHPUnitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fullToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.defineFilePathsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pHPExecutablePathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,11 +58,11 @@
             this.terminateConsoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enabledToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.disabledToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.initToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pHPUnitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fullToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tbOutput = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.tbPHPArgs = new System.Windows.Forms.TextBox();
+            this.btnPhpUnitWithArgs = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -146,7 +149,7 @@
             this.btnPhpUnit.Name = "btnPhpUnit";
             this.btnPhpUnit.Size = new System.Drawing.Size(111, 23);
             this.btnPhpUnit.TabIndex = 8;
-            this.btnPhpUnit.Text = "Run PHPUnit Tests";
+            this.btnPhpUnit.Text = "Full PHPUnit Tests";
             this.btnPhpUnit.UseVisualStyleBackColor = true;
             this.btnPhpUnit.Click += new System.EventHandler(this.btnPhpUnit_Click);
             // 
@@ -194,7 +197,7 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.settingsToolStripMenuItem.Text = "Reset Settings";
             this.settingsToolStripMenuItem.ToolTipText = "Resets Settings to factory default";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
@@ -202,7 +205,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.ToolTipText = "Exits the application";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
@@ -241,6 +244,30 @@
             this.runPHPUnitToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.runPHPUnitToolStripMenuItem.Text = "Run PHP Unit Tests";
             this.runPHPUnitToolStripMenuItem.Click += new System.EventHandler(this.btnPhpUnit_Click);
+            // 
+            // initToolStripMenuItem
+            // 
+            this.initToolStripMenuItem.Name = "initToolStripMenuItem";
+            this.initToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.initToolStripMenuItem.Text = "Init Only";
+            this.initToolStripMenuItem.ToolTipText = "Run the init command for preparing Moodle PHPUnit";
+            this.initToolStripMenuItem.Click += new System.EventHandler(this.initToolStripMenuItem_Click);
+            // 
+            // pHPUnitToolStripMenuItem
+            // 
+            this.pHPUnitToolStripMenuItem.Name = "pHPUnitToolStripMenuItem";
+            this.pHPUnitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pHPUnitToolStripMenuItem.Text = "PHPUnit Only";
+            this.pHPUnitToolStripMenuItem.ToolTipText = "Only run the PHPUnit Library";
+            this.pHPUnitToolStripMenuItem.Click += new System.EventHandler(this.pHPUnitToolStripMenuItem_Click);
+            // 
+            // fullToolStripMenuItem
+            // 
+            this.fullToolStripMenuItem.Name = "fullToolStripMenuItem";
+            this.fullToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.fullToolStripMenuItem.Text = "Both";
+            this.fullToolStripMenuItem.ToolTipText = "Run the entire PHPUnit Test commands";
+            this.fullToolStripMenuItem.Click += new System.EventHandler(this.btnPhpUnit_Click);
             // 
             // optionsToolStripMenuItem
             // 
@@ -289,7 +316,7 @@
             // enabledToolStripMenuItem
             // 
             this.enabledToolStripMenuItem.Name = "enabledToolStripMenuItem";
-            this.enabledToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.enabledToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.enabledToolStripMenuItem.Text = "Enabled";
             this.enabledToolStripMenuItem.ToolTipText = "Kills the console when its finished its task";
             this.enabledToolStripMenuItem.Click += new System.EventHandler(this.enabledToolStripMenuItem_Click);
@@ -297,34 +324,10 @@
             // disabledToolStripMenuItem
             // 
             this.disabledToolStripMenuItem.Name = "disabledToolStripMenuItem";
-            this.disabledToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.disabledToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.disabledToolStripMenuItem.Text = "Disabled";
             this.disabledToolStripMenuItem.ToolTipText = "Don\'t kill the console window when the task has been executed";
             this.disabledToolStripMenuItem.Click += new System.EventHandler(this.disabledToolStripMenuItem_Click);
-            // 
-            // initToolStripMenuItem
-            // 
-            this.initToolStripMenuItem.Name = "initToolStripMenuItem";
-            this.initToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.initToolStripMenuItem.Text = "Init";
-            this.initToolStripMenuItem.ToolTipText = "Run the init command for preparing Moodle PHPUnit";
-            this.initToolStripMenuItem.Click += new System.EventHandler(this.initToolStripMenuItem_Click);
-            // 
-            // pHPUnitToolStripMenuItem
-            // 
-            this.pHPUnitToolStripMenuItem.Name = "pHPUnitToolStripMenuItem";
-            this.pHPUnitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.pHPUnitToolStripMenuItem.Text = "PHPUnit";
-            this.pHPUnitToolStripMenuItem.ToolTipText = "Only run the PHPUnit Library";
-            this.pHPUnitToolStripMenuItem.Click += new System.EventHandler(this.pHPUnitToolStripMenuItem_Click);
-            // 
-            // fullToolStripMenuItem
-            // 
-            this.fullToolStripMenuItem.Name = "fullToolStripMenuItem";
-            this.fullToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.fullToolStripMenuItem.Text = "Full";
-            this.fullToolStripMenuItem.ToolTipText = "Run the entire PHPUnit Test commands";
-            this.fullToolStripMenuItem.Click += new System.EventHandler(this.btnPhpUnit_Click);
             // 
             // tbOutput
             // 
@@ -344,11 +347,40 @@
             this.label4.TabIndex = 13;
             this.label4.Text = "Console Output";
             // 
+            // tbPHPArgs
+            // 
+            this.tbPHPArgs.Location = new System.Drawing.Point(12, 245);
+            this.tbPHPArgs.Name = "tbPHPArgs";
+            this.tbPHPArgs.Size = new System.Drawing.Size(114, 20);
+            this.tbPHPArgs.TabIndex = 14;
+            // 
+            // btnPhpUnitWithArgs
+            // 
+            this.btnPhpUnitWithArgs.Location = new System.Drawing.Point(15, 216);
+            this.btnPhpUnitWithArgs.Name = "btnPhpUnitWithArgs";
+            this.btnPhpUnitWithArgs.Size = new System.Drawing.Size(111, 23);
+            this.btnPhpUnitWithArgs.TabIndex = 15;
+            this.btnPhpUnitWithArgs.Text = "PHPUnit with Args";
+            this.btnPhpUnitWithArgs.UseVisualStyleBackColor = true;
+            this.btnPhpUnitWithArgs.Click += new System.EventHandler(this.btnPhpUnitWithArgs_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(15, 268);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(82, 13);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Enter Args Here";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(505, 261);
+            this.ClientSize = new System.Drawing.Size(505, 285);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.btnPhpUnitWithArgs);
+            this.Controls.Add(this.tbPHPArgs);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tbOutput);
             this.Controls.Add(this.label3);
@@ -406,6 +438,9 @@
         private System.Windows.Forms.ToolStripMenuItem fullToolStripMenuItem;
         private System.Windows.Forms.TextBox tbOutput;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tbPHPArgs;
+        private System.Windows.Forms.Button btnPhpUnitWithArgs;
+        private System.Windows.Forms.Label label5;
     }
 }
 

@@ -149,6 +149,13 @@ namespace MoodleHelper
             startCommandPrompt(cmd);
         }
 
+        private void runFullPHPUnitTests(string args)
+        {
+            string cmd = getCommandStringStart();
+            cmd += "\"\"" + this.moodleDir + "\\vendor\\bin\\phpunit\" " + args + "\"";
+            startCommandPrompt(cmd);
+        }
+
         private void runBothInitAndPhpUnitTests()
         {
             string cmd = getCommandStringStart();
@@ -263,6 +270,22 @@ namespace MoodleHelper
                 return;
             }
             runFullPHPUnitTests();
+        }
+
+        private void btnPhpUnitWithArgs_Click(object sender, EventArgs e)
+        {
+            if (!checkForPhpAndMoodle())
+            {
+                return;
+            }
+            string args = tbPHPArgs.Text;
+            if (args != null && args != "")
+            {
+                runFullPHPUnitTests(args);
+            } else
+            {
+                runFullPHPUnitTests();
+            }
         }
 
         private void btnPhpUnit_Click(object sender, EventArgs e)

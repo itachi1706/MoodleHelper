@@ -58,7 +58,6 @@
             this.terminateConsoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enabledToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.disabledToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tbOutput = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tbPHPArgs = new System.Windows.Forms.TextBox();
             this.btnPhpUnitWithArgs = new System.Windows.Forms.Button();
@@ -68,6 +67,7 @@
             this.pHPUnitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.moodlePHPUnitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pHPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tbOutput = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -335,15 +335,6 @@
             this.disabledToolStripMenuItem.ToolTipText = "Don\'t kill the console window when the task has been executed";
             this.disabledToolStripMenuItem.Click += new System.EventHandler(this.disabledToolStripMenuItem_Click);
             // 
-            // tbOutput
-            // 
-            this.tbOutput.Location = new System.Drawing.Point(132, 124);
-            this.tbOutput.Multiline = true;
-            this.tbOutput.Name = "tbOutput";
-            this.tbOutput.ReadOnly = true;
-            this.tbOutput.Size = new System.Drawing.Size(361, 125);
-            this.tbOutput.TabIndex = 12;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -418,16 +409,25 @@
             this.pHPToolStripMenuItem.Text = "PHP Manual";
             this.pHPToolStripMenuItem.Click += new System.EventHandler(this.pHPToolStripMenuItem_Click);
             // 
+            // tbOutput
+            // 
+            this.tbOutput.Location = new System.Drawing.Point(135, 125);
+            this.tbOutput.Name = "tbOutput";
+            this.tbOutput.ReadOnly = true;
+            this.tbOutput.Size = new System.Drawing.Size(358, 156);
+            this.tbOutput.TabIndex = 17;
+            this.tbOutput.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(505, 285);
+            this.Controls.Add(this.tbOutput);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnPhpUnitWithArgs);
             this.Controls.Add(this.tbPHPArgs);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.tbOutput);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnPhpUnit);
             this.Controls.Add(this.btnCron);
@@ -481,7 +481,6 @@
         private System.Windows.Forms.ToolStripMenuItem initToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pHPUnitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fullToolStripMenuItem;
-        private System.Windows.Forms.TextBox tbOutput;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbPHPArgs;
         private System.Windows.Forms.Button btnPhpUnitWithArgs;
@@ -491,6 +490,7 @@
         private System.Windows.Forms.ToolStripMenuItem pHPUnitToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem moodlePHPUnitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pHPToolStripMenuItem;
+        private System.Windows.Forms.RichTextBox tbOutput;
     }
 }
 

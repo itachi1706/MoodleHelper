@@ -90,7 +90,9 @@ namespace MoodleHelper
 
         private string startCommandPrompt(string command)
         {
-            ProcessStartInfo processStartInfo = new ProcessStartInfo("cmd.exe", command);
+            ProcessStartInfo processStartInfo = new ProcessStartInfo();
+            processStartInfo.FileName = "cmd";
+            processStartInfo.Arguments = command;
             processStartInfo.RedirectStandardError = true;
             processStartInfo.RedirectStandardOutput = true;
             processStartInfo.WindowStyle = ProcessWindowStyle.Normal;
@@ -128,7 +130,7 @@ namespace MoodleHelper
         {
             if (!this.keepConsole)
             {
-                return "/C ";
+                return "/c ";
             }
             return "/K ";
         }
@@ -136,14 +138,22 @@ namespace MoodleHelper
         private void initPHPUnitTests()
         {
             string cmd = getCommandStringStart();
-            cmd += "\"" + this.phpPath + "\" \"" + this.moodleDir + "\\admin\\cli\\init.php\"";
+            cmd += "\"\"" + this.phpPath + "\" \"" + this.moodleDir + "\\admin\\tool\\phpunit\\cli\\init.php\"\"";
             startCommandPrompt(cmd);
         }
 
         private void runFullPHPUnitTests()
         {
             string cmd = getCommandStringStart();
-            cmd += "\"" + this.moodleDir + "\\vendor\\bin\\phpunit\"";
+            cmd += "\"\"" + this.moodleDir + "\\vendor\\bin\\phpunit\"\"";
+            startCommandPrompt(cmd);
+        }
+
+        private void runBothInitAndPhpUnitTests()
+        {
+            string cmd = getCommandStringStart();
+            cmd += "\"\"" + this.phpPath + "\" \"" + this.moodleDir + "\\admin\\tool\\phpunit\\cli\\init.php\" ";
+            cmd += "& \"" + this.moodleDir + "\\vendor\\bin\\phpunit\"\"";
             startCommandPrompt(cmd);
         }
 
@@ -210,7 +220,7 @@ namespace MoodleHelper
             if (!checkForPhpAndMoodle())
                 return;
             string cmd = getCommandStringStart();
-            cmd += "\"" + this.phpPath + "\" \"" + this.moodleDir + "\\admin\\cli\\purgecaches.php\"";
+            cmd += "\"\"" + this.phpPath + "\" \"" + this.moodleDir + "\\admin\\cli\\purge_caches.php\"\"";
             startCommandPrompt(cmd);
         }
 
@@ -219,7 +229,7 @@ namespace MoodleHelper
             if (!checkForPhpAndMoodle())
                 return;
             string cmd = getCommandStringStart();
-            cmd += "\"" + this.phpPath + "\" \"" + this.moodleDir + "\\admin\\cli\\cron.php\"";
+            cmd += "\"\"" + this.phpPath + "\" \"" + this.moodleDir + "\\admin\\cli\\cron.php\"\"";
             startCommandPrompt(cmd);
         }
 
@@ -259,7 +269,7 @@ namespace MoodleHelper
         {
             if (!checkForPhpAndMoodle())
                 return;
-            MessageBox.Show("COMING SOON", "COMING SOON");
+            runBothInitAndPhpUnitTests();
         }
     }
 }

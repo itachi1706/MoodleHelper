@@ -49,6 +49,13 @@
             this.executeCronToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.runPHPUnitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label4 = new System.Windows.Forms.Label();
+            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.defineFilePathsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pHPExecutablePathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.moodleDirectoryPathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.terminateConsoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.enabledToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.disabledToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -160,7 +167,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.actionsToolStripMenuItem});
+            this.actionsToolStripMenuItem,
+            this.optionsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(505, 24);
@@ -179,15 +187,17 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.settingsToolStripMenuItem.Text = "Reset Settings";
+            this.settingsToolStripMenuItem.ToolTipText = "Resets Settings to factory default";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.ToolTipText = "Exits the application";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // actionsToolStripMenuItem
@@ -229,6 +239,66 @@
             this.label4.Size = new System.Drawing.Size(172, 13);
             this.label4.TabIndex = 11;
             this.label4.Text = "COMING SOON. CONSOLE VIEW";
+            // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.defineFilePathsToolStripMenuItem,
+            this.terminateConsoleToolStripMenuItem});
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.optionsToolStripMenuItem.Text = "Options";
+            // 
+            // defineFilePathsToolStripMenuItem
+            // 
+            this.defineFilePathsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pHPExecutablePathToolStripMenuItem,
+            this.moodleDirectoryPathToolStripMenuItem});
+            this.defineFilePathsToolStripMenuItem.Name = "defineFilePathsToolStripMenuItem";
+            this.defineFilePathsToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.defineFilePathsToolStripMenuItem.Text = "Define File Paths";
+            this.defineFilePathsToolStripMenuItem.ToolTipText = "Defines file paths";
+            // 
+            // pHPExecutablePathToolStripMenuItem
+            // 
+            this.pHPExecutablePathToolStripMenuItem.Name = "pHPExecutablePathToolStripMenuItem";
+            this.pHPExecutablePathToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.pHPExecutablePathToolStripMenuItem.Text = "PHP Executable Path";
+            this.pHPExecutablePathToolStripMenuItem.ToolTipText = "Define PHP Executable File Path";
+            this.pHPExecutablePathToolStripMenuItem.Click += new System.EventHandler(this.btnSelectPhp_Click);
+            // 
+            // moodleDirectoryPathToolStripMenuItem
+            // 
+            this.moodleDirectoryPathToolStripMenuItem.Name = "moodleDirectoryPathToolStripMenuItem";
+            this.moodleDirectoryPathToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.moodleDirectoryPathToolStripMenuItem.Text = "Moodle Directory Path";
+            this.moodleDirectoryPathToolStripMenuItem.ToolTipText = "Define Moodle Directory Folder Path";
+            this.moodleDirectoryPathToolStripMenuItem.Click += new System.EventHandler(this.btlSelectMoodle_Click);
+            // 
+            // terminateConsoleToolStripMenuItem
+            // 
+            this.terminateConsoleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.enabledToolStripMenuItem,
+            this.disabledToolStripMenuItem});
+            this.terminateConsoleToolStripMenuItem.Name = "terminateConsoleToolStripMenuItem";
+            this.terminateConsoleToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.terminateConsoleToolStripMenuItem.Text = "Terminate Console";
+            // 
+            // enabledToolStripMenuItem
+            // 
+            this.enabledToolStripMenuItem.Name = "enabledToolStripMenuItem";
+            this.enabledToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.enabledToolStripMenuItem.Text = "Enabled";
+            this.enabledToolStripMenuItem.ToolTipText = "Kills the console when its finished its task";
+            this.enabledToolStripMenuItem.Click += new System.EventHandler(this.enabledToolStripMenuItem_Click);
+            // 
+            // disabledToolStripMenuItem
+            // 
+            this.disabledToolStripMenuItem.Name = "disabledToolStripMenuItem";
+            this.disabledToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.disabledToolStripMenuItem.Text = "Disabled";
+            this.disabledToolStripMenuItem.ToolTipText = "Don\'t kill the console window when the task has been executed";
+            this.disabledToolStripMenuItem.Click += new System.EventHandler(this.disabledToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -280,6 +350,13 @@
         private System.Windows.Forms.ToolStripMenuItem executeCronToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem runPHPUnitToolStripMenuItem;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem defineFilePathsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pHPExecutablePathToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem moodleDirectoryPathToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem terminateConsoleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem enabledToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem disabledToolStripMenuItem;
     }
 }
 

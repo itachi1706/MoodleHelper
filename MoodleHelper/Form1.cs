@@ -37,6 +37,8 @@ namespace MoodleHelper
         {
             tbMoodle.Text = this.moodleDir;
             tbPhp.Text = this.phpPath;
+            enabledToolStripMenuItem.Checked = this.keepConsole ? false : true;
+            disabledToolStripMenuItem.Checked = this.keepConsole ? true : false;
         }
 
         private void saveSettings()
@@ -172,6 +174,20 @@ namespace MoodleHelper
             string cmd = getCommandStringStart();
             cmd += "\"" + this.phpPath + "\" \"" + this.moodleDir + "\\admin\\cli\\cron.php\"";
             startCommandPrompt(cmd);
+        }
+
+        private void enabledToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.keepConsole = false;
+            Properties.Settings.Default.Save();
+            loadSettings();
+        }
+
+        private void disabledToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.keepConsole = true;
+            Properties.Settings.Default.Save();
+            loadSettings();
         }
 
         private void btnPhpUnit_Click(object sender, EventArgs e)

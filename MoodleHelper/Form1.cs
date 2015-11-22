@@ -90,7 +90,12 @@ namespace MoodleHelper
 
         private string startCommandPrompt(string command)
         {
-            Process process = System.Diagnostics.Process.Start("cmd.exe", command);
+            ProcessStartInfo processStartInfo = new ProcessStartInfo("cmd.exe", command);
+            processStartInfo.RedirectStandardError = true;
+            processStartInfo.RedirectStandardOutput = true;
+            processStartInfo.WindowStyle = ProcessWindowStyle.Normal;
+            processStartInfo.UseShellExecute = false;
+            Process process = Process.Start(processStartInfo);
             string output = string.Empty;
             string error = string.Empty;
             using (StreamReader streamreader = process.StandardOutput)
@@ -109,6 +114,7 @@ namespace MoodleHelper
                 finalOutput += "\n The following errors are found: \n";
                 finalOutput += error;
             }
+            tbOutput.Text = finalOutput;
             return finalOutput;
         }
 
@@ -125,7 +131,7 @@ namespace MoodleHelper
         {
             string cmd = getCommandStringStart();
             cmd += "\"" + this.phpPath + "\" \"" + this.moodleDir + "\\admin\\cli\\init.php\"";
-            MessageBox.Show(startCommandPrompt(cmd));
+            startCommandPrompt(cmd);
         }
 
         private void runFullPHPUnitTests()

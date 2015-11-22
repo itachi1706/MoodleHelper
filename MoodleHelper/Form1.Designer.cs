@@ -48,7 +48,6 @@
             this.purgeCacheToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.executeCronToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.runPHPUnitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label4 = new System.Windows.Forms.Label();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.defineFilePathsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pHPExecutablePathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,6 +58,8 @@
             this.initToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pHPUnitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fullToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tbOutput = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,6 +86,8 @@
             this.tbPhp.Enabled = false;
             this.tbPhp.Location = new System.Drawing.Point(76, 41);
             this.tbPhp.Name = "tbPhp";
+            this.tbPhp.ReadOnly = true;
+            this.tbPhp.ShortcutsEnabled = false;
             this.tbPhp.Size = new System.Drawing.Size(389, 20);
             this.tbPhp.TabIndex = 2;
             // 
@@ -93,6 +96,7 @@
             this.tbMoodle.Enabled = false;
             this.tbMoodle.Location = new System.Drawing.Point(76, 68);
             this.tbMoodle.Name = "tbMoodle";
+            this.tbMoodle.ReadOnly = true;
             this.tbMoodle.Size = new System.Drawing.Size(389, 20);
             this.tbMoodle.TabIndex = 3;
             // 
@@ -238,15 +242,6 @@
             this.runPHPUnitToolStripMenuItem.Text = "Run PHP Unit Tests";
             this.runPHPUnitToolStripMenuItem.Click += new System.EventHandler(this.btnPhpUnit_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(220, 148);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(172, 13);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "COMING SOON. CONSOLE VIEW";
-            // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -331,12 +326,31 @@
             this.fullToolStripMenuItem.ToolTipText = "Run the entire PHPUnit Test commands";
             this.fullToolStripMenuItem.Click += new System.EventHandler(this.btnPhpUnit_Click);
             // 
+            // tbOutput
+            // 
+            this.tbOutput.Location = new System.Drawing.Point(132, 124);
+            this.tbOutput.Multiline = true;
+            this.tbOutput.Name = "tbOutput";
+            this.tbOutput.ReadOnly = true;
+            this.tbOutput.Size = new System.Drawing.Size(361, 125);
+            this.tbOutput.TabIndex = 12;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(132, 109);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(80, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Console Output";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(505, 261);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.tbOutput);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnPhpUnit);
             this.Controls.Add(this.btnCron);
@@ -380,7 +394,6 @@
         private System.Windows.Forms.ToolStripMenuItem purgeCacheToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem executeCronToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem runPHPUnitToolStripMenuItem;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem defineFilePathsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pHPExecutablePathToolStripMenuItem;
@@ -391,6 +404,8 @@
         private System.Windows.Forms.ToolStripMenuItem initToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pHPUnitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fullToolStripMenuItem;
+        private System.Windows.Forms.TextBox tbOutput;
+        private System.Windows.Forms.Label label4;
     }
 }
 

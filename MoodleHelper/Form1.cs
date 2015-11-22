@@ -107,15 +107,21 @@ namespace MoodleHelper
                 error = streamReader.ReadToEnd();
             }
 
-            string finalOutput = process.StartTime.ToString() + "\n";
+            string finalOutput = "Command Executed: " + command + "\nCommand Ran At: ";
+            finalOutput += process.StartTime.ToString() + "\n";
             finalOutput += output;
             if (!string.IsNullOrEmpty(error))
             {
-                finalOutput += "\n The following errors are found: \n";
+                finalOutput += "\nThe following errors are found: \n";
                 finalOutput += error;
             }
-            tbOutput.Text = finalOutput;
+            tbOutput.Lines = parseOutput(finalOutput);
             return finalOutput;
+        }
+
+        private string[] parseOutput(string output)
+        {
+            return output.Split('\n');
         }
 
         private string getCommandStringStart()

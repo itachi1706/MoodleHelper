@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -86,9 +88,28 @@ namespace MoodleHelper
             return true;
         }
 
-        private void startCommandPrompt(string command)
+        private string startCommandPrompt(string command)
         {
-            System.Diagnostics.Process.Start("cmd.exe", command);
+            Process process = System.Diagnostics.Process.Start("cmd.exe", command);
+            string output = string.Empty;
+            string error = string.Empty;
+            using (StreamReader streamreader = process.StandardOutput)
+            {
+                output = streamreader.ReadToEnd();
+            }
+            using (StreamReader streamReader = process.StandardError)
+            {
+                error = streamReader.ReadToEnd();
+            }
+
+            string finalOutput = process.StartTime.ToString() + "\n";
+            finalOutput += output;
+            if (!string.IsNullOrEmpty(error))
+            {
+                finalOutput += "\n The following errors are found: \n";
+                finalOutput += error;
+            }
+            return finalOutput;
         }
 
         private string getCommandStringStart()
@@ -98,6 +119,20 @@ namespace MoodleHelper
                 return "/C ";
             }
             return "/K ";
+        }
+
+        private void initPHPUnitTests()
+        {
+            string cmd = getCommandStringStart();
+            cmd += "\"" + this.phpPath + "\" \"" + this.moodleDir + "\\admin\\cli\\init.php\"";
+            MessageBox.Show(startCommandPrompt(cmd));
+        }
+
+        private void runFullPHPUnitTests()
+        {
+            string cmd = getCommandStringStart();
+            cmd += "\"" + this.moodleDir + "\\vendor\\bin\\phpunit\"";
+            startCommandPrompt(cmd);
         }
 
         private void btnSelectPhp_Click(object sender, EventArgs e)
@@ -188,6 +223,24 @@ namespace MoodleHelper
             Properties.Settings.Default.keepConsole = true;
             Properties.Settings.Default.Save();
             loadSettings();
+        }
+
+        private void initToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!checkForPhpAndMoodle())
+            {
+                return;
+            }
+            initPHPUnitTests();
+        }
+
+        private void pHPUnitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!checkForPhpAndMoodle())
+            {
+                return;
+            }
+            runFullPHPUnitTests();
         }
 
         private void btnPhpUnit_Click(object sender, EventArgs e)

@@ -56,6 +56,9 @@
             this.terminateConsoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enabledToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.disabledToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.initToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pHPUnitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fullToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -226,6 +229,10 @@
             // 
             // runPHPUnitToolStripMenuItem
             // 
+            this.runPHPUnitToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.initToolStripMenuItem,
+            this.pHPUnitToolStripMenuItem,
+            this.fullToolStripMenuItem});
             this.runPHPUnitToolStripMenuItem.Name = "runPHPUnitToolStripMenuItem";
             this.runPHPUnitToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.runPHPUnitToolStripMenuItem.Text = "Run PHP Unit Tests";
@@ -300,6 +307,30 @@
             this.disabledToolStripMenuItem.ToolTipText = "Don\'t kill the console window when the task has been executed";
             this.disabledToolStripMenuItem.Click += new System.EventHandler(this.disabledToolStripMenuItem_Click);
             // 
+            // initToolStripMenuItem
+            // 
+            this.initToolStripMenuItem.Name = "initToolStripMenuItem";
+            this.initToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.initToolStripMenuItem.Text = "Init";
+            this.initToolStripMenuItem.ToolTipText = "Run the init command for preparing Moodle PHPUnit";
+            this.initToolStripMenuItem.Click += new System.EventHandler(this.initToolStripMenuItem_Click);
+            // 
+            // pHPUnitToolStripMenuItem
+            // 
+            this.pHPUnitToolStripMenuItem.Name = "pHPUnitToolStripMenuItem";
+            this.pHPUnitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pHPUnitToolStripMenuItem.Text = "PHPUnit";
+            this.pHPUnitToolStripMenuItem.ToolTipText = "Only run the PHPUnit Library";
+            this.pHPUnitToolStripMenuItem.Click += new System.EventHandler(this.pHPUnitToolStripMenuItem_Click);
+            // 
+            // fullToolStripMenuItem
+            // 
+            this.fullToolStripMenuItem.Name = "fullToolStripMenuItem";
+            this.fullToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.fullToolStripMenuItem.Text = "Full";
+            this.fullToolStripMenuItem.ToolTipText = "Run the entire PHPUnit Test commands";
+            this.fullToolStripMenuItem.Click += new System.EventHandler(this.btnPhpUnit_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -357,6 +388,9 @@
         private System.Windows.Forms.ToolStripMenuItem terminateConsoleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem enabledToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem disabledToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem initToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pHPUnitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fullToolStripMenuItem;
     }
 }
 

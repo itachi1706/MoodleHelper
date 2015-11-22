@@ -63,6 +63,11 @@
             this.tbPHPArgs = new System.Windows.Forms.TextBox();
             this.btnPhpUnitWithArgs = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.moodleSiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pHPUnitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.moodlePHPUnitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pHPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -178,7 +183,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.actionsToolStripMenuItem,
-            this.optionsToolStripMenuItem});
+            this.optionsToolStripMenuItem,
+            this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(505, 24);
@@ -373,6 +379,45 @@
             this.label5.TabIndex = 16;
             this.label5.Text = "Enter Args Here";
             // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.moodleSiteToolStripMenuItem,
+            this.moodlePHPUnitToolStripMenuItem,
+            this.pHPUnitToolStripMenuItem1,
+            this.pHPToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(107, 20);
+            this.helpToolStripMenuItem.Text = "Documentations";
+            // 
+            // moodleSiteToolStripMenuItem
+            // 
+            this.moodleSiteToolStripMenuItem.Name = "moodleSiteToolStripMenuItem";
+            this.moodleSiteToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.moodleSiteToolStripMenuItem.Text = "Moodle Dev";
+            this.moodleSiteToolStripMenuItem.Click += new System.EventHandler(this.moodleSiteToolStripMenuItem_Click);
+            // 
+            // pHPUnitToolStripMenuItem1
+            // 
+            this.pHPUnitToolStripMenuItem1.Name = "pHPUnitToolStripMenuItem1";
+            this.pHPUnitToolStripMenuItem1.Size = new System.Drawing.Size(163, 22);
+            this.pHPUnitToolStripMenuItem1.Text = "PHPUnit";
+            this.pHPUnitToolStripMenuItem1.Click += new System.EventHandler(this.pHPUnitToolStripMenuItem1_Click);
+            // 
+            // moodlePHPUnitToolStripMenuItem
+            // 
+            this.moodlePHPUnitToolStripMenuItem.Name = "moodlePHPUnitToolStripMenuItem";
+            this.moodlePHPUnitToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.moodlePHPUnitToolStripMenuItem.Text = "Moodle PHPUnit";
+            this.moodlePHPUnitToolStripMenuItem.Click += new System.EventHandler(this.moodlePHPUnitToolStripMenuItem_Click);
+            // 
+            // pHPToolStripMenuItem
+            // 
+            this.pHPToolStripMenuItem.Name = "pHPToolStripMenuItem";
+            this.pHPToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.pHPToolStripMenuItem.Text = "PHP Manual";
+            this.pHPToolStripMenuItem.Click += new System.EventHandler(this.pHPToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -441,6 +486,11 @@
         private System.Windows.Forms.TextBox tbPHPArgs;
         private System.Windows.Forms.Button btnPhpUnitWithArgs;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem moodleSiteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pHPUnitToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem moodlePHPUnitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pHPToolStripMenuItem;
     }
 }
 

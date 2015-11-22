@@ -288,6 +288,26 @@ namespace MoodleHelper
             }
         }
 
+        private void moodleSiteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://docs.moodle.org/dev/Main_Page");
+        }
+
+        private void pHPUnitToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://phpunit.de/manual/current/en/index.html");
+        }
+
+        private void moodlePHPUnitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://docs.moodle.org/dev/PHPUnit");
+        }
+
+        private void pHPToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://php.net/manual/en/index.php");
+        }
+
         private void btnPhpUnit_Click(object sender, EventArgs e)
         {
             if (!checkForPhpAndMoodle())

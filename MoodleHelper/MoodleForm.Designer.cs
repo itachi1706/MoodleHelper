@@ -69,6 +69,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.tbOutput = new System.Windows.Forms.RichTextBox();
             this.switchToFlywayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.switchToFlywayToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -185,7 +186,8 @@
             this.fileToolStripMenuItem,
             this.actionsToolStripMenuItem,
             this.optionsToolStripMenuItem,
-            this.helpToolStripMenuItem});
+            this.helpToolStripMenuItem,
+            this.switchToFlywayToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(505, 24);
@@ -427,6 +429,13 @@
             this.switchToFlywayToolStripMenuItem.Text = "Switch to Flyway";
             this.switchToFlywayToolStripMenuItem.Click += new System.EventHandler(this.switchToFlywayToolStripMenuItem_Click);
             // 
+            // switchToFlywayToolStripMenuItem1
+            // 
+            this.switchToFlywayToolStripMenuItem1.Name = "switchToFlywayToolStripMenuItem1";
+            this.switchToFlywayToolStripMenuItem1.Size = new System.Drawing.Size(107, 20);
+            this.switchToFlywayToolStripMenuItem1.Text = "Switch to Flyway";
+            this.switchToFlywayToolStripMenuItem1.Click += new System.EventHandler(this.switchToFlywayToolStripMenuItem_Click);
+            // 
             // MoodleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -502,6 +511,7 @@
         private System.Windows.Forms.ToolStripMenuItem pHPToolStripMenuItem;
         private System.Windows.Forms.RichTextBox tbOutput;
         private System.Windows.Forms.ToolStripMenuItem switchToFlywayToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem switchToFlywayToolStripMenuItem1;
     }
 }
 

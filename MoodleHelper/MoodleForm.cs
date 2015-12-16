@@ -12,13 +12,13 @@ using System.Windows.Forms;
 
 namespace MoodleHelper
 {
-    public partial class Form1 : Form
+    public partial class MoodleForm : Form
     {
 
         string phpPath, moodleDir;
         bool keepConsole = false;
 
-        public Form1()
+        public MoodleForm()
         {
             InitializeComponent();
             loadSettings();

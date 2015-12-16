@@ -68,6 +68,7 @@
             this.btnPhpUnitWithArgs = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.tbOutput = new System.Windows.Forms.RichTextBox();
+            this.switchToFlywayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -203,7 +204,7 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.settingsToolStripMenuItem.Text = "Reset Settings";
             this.settingsToolStripMenuItem.ToolTipText = "Resets Settings to factory default";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
@@ -211,7 +212,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.ToolTipText = "Exits the application";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
@@ -279,7 +280,8 @@
             // 
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.defineFilePathsToolStripMenuItem,
-            this.terminateConsoleToolStripMenuItem});
+            this.terminateConsoleToolStripMenuItem,
+            this.switchToFlywayToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.optionsToolStripMenuItem.Text = "Options";
@@ -418,6 +420,13 @@
             this.tbOutput.TabIndex = 17;
             this.tbOutput.Text = "";
             // 
+            // switchToFlywayToolStripMenuItem
+            // 
+            this.switchToFlywayToolStripMenuItem.Name = "switchToFlywayToolStripMenuItem";
+            this.switchToFlywayToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.switchToFlywayToolStripMenuItem.Text = "Switch to Flyway";
+            this.switchToFlywayToolStripMenuItem.Click += new System.EventHandler(this.switchToFlywayToolStripMenuItem_Click);
+            // 
             // MoodleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -492,6 +501,7 @@
         private System.Windows.Forms.ToolStripMenuItem moodlePHPUnitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pHPToolStripMenuItem;
         private System.Windows.Forms.RichTextBox tbOutput;
+        private System.Windows.Forms.ToolStripMenuItem switchToFlywayToolStripMenuItem;
     }
 }
 

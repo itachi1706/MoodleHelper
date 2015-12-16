@@ -16,5 +16,13 @@ namespace MoodleHelper
         {
             InitializeComponent();
         }
+
+        private void switchToMoodleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MoodleForm form = new MoodleForm();
+            form.Closed += (s, args) => this.Close();
+            form.Show();
+        }
     }
 }

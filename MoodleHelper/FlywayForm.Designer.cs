@@ -65,6 +65,7 @@
             this.flywayOpen = new System.Windows.Forms.OpenFileDialog();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.switchToMoodleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,7 +87,8 @@
             // 
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.defineFilePathsToolStripMenuItem,
-            this.terminateConsoleToolStripMenuItem});
+            this.terminateConsoleToolStripMenuItem,
+            this.switchToMoodleToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.optionsToolStripMenuItem.Text = "Options";
@@ -369,6 +371,13 @@
             this.label2.TabIndex = 35;
             this.label2.Text = "Select Stuff";
             // 
+            // switchToMoodleToolStripMenuItem
+            // 
+            this.switchToMoodleToolStripMenuItem.Name = "switchToMoodleToolStripMenuItem";
+            this.switchToMoodleToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.switchToMoodleToolStripMenuItem.Text = "Switch to Moodle";
+            this.switchToMoodleToolStripMenuItem.Click += new System.EventHandler(this.switchToMoodleToolStripMenuItem_Click);
+            // 
             // FlywayForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -436,6 +445,7 @@
         private System.Windows.Forms.OpenFileDialog flywayOpen;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ToolStripMenuItem switchToMoodleToolStripMenuItem;
 
     }
 }

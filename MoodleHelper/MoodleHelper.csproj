@@ -89,6 +89,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
+    <EmbeddedResource Include="FlywayForm.resx">
+      <DependentUpon>FlywayForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MoodleForm.resx">
       <DependentUpon>MoodleForm.cs</DependentUpon>
     </EmbeddedResource>

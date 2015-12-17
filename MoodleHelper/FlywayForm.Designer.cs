@@ -147,10 +147,13 @@
             // 
             // tbPHPArgs
             // 
+            this.tbPHPArgs.Enabled = false;
             this.tbPHPArgs.Location = new System.Drawing.Point(624, 73);
             this.tbPHPArgs.Name = "tbPHPArgs";
+            this.tbPHPArgs.ReadOnly = true;
             this.tbPHPArgs.Size = new System.Drawing.Size(114, 20);
             this.tbPHPArgs.TabIndex = 30;
+            this.tbPHPArgs.Text = "Coming Soon";
             // 
             // label4
             // 
@@ -317,11 +320,15 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.Enabled = false;
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Coming Soon"});
             this.comboBox1.Location = new System.Drawing.Point(507, 72);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(111, 21);
             this.comboBox1.TabIndex = 34;
+            this.comboBox1.Text = "Coming Soon";
             // 
             // label2
             // 

@@ -48,17 +48,7 @@ namespace MoodleHelper
                         intver[i] = 0;
                     }
                 }
-
-                if (compareVersionAndCheckIfNewer(intver))
-                {
-                    newVersionAvailableToolStripMenuItem.Visible = true;
-                }
-                else
-                {
-                    newVersionAvailableToolStripMenuItem.Visible = false;
-                }
-
-
+                newVersionAvailableToolStripMenuItem.Visible = compareVersionAndCheckIfNewer(intver);
             }
         }
 

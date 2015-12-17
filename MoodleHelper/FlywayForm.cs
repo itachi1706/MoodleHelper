@@ -67,7 +67,7 @@ namespace MoodleHelper
             return false;
         }
 
-        private bool checkForPhpAndMoodle()
+        private bool checkForFlywayExist()
         {
             if (!checkForFlyway())
             {
@@ -90,11 +90,13 @@ namespace MoodleHelper
             processStartInfo.Arguments = command;
             processStartInfo.RedirectStandardError = true;
             processStartInfo.RedirectStandardOutput = true;
-            processStartInfo.WindowStyle = ProcessWindowStyle.Normal;
+            processStartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             processStartInfo.UseShellExecute = false;
+            processStartInfo.CreateNoWindow = true;
             Process process = Process.Start(processStartInfo);
             string output = string.Empty;
             string error = string.Empty;
+            progress.Visible = true;
             using (StreamReader streamreader = process.StandardOutput)
             {
                 output = streamreader.ReadToEnd();
@@ -113,6 +115,7 @@ namespace MoodleHelper
                 finalOutput += error;
             }
             tbOutput.Lines = parseOutput(finalOutput);
+            progress.Visible = false;
             return finalOutput;
         }
 
@@ -234,6 +237,27 @@ namespace MoodleHelper
         private void btnSelectFlyway_Click(object sender, EventArgs e)
         {
             selectFlywayExe();
+        }
+
+        private void btnInfo_Click(object sender, EventArgs e)
+        {
+            if (!checkForFlywayExist())
+                return;
+            runFlywayInfo();
+        }
+
+        private void btnMigrate_Click(object sender, EventArgs e)
+        {
+            if (!checkForFlywayExist())
+                return;
+            runFlywayMigrate();
+        }
+
+        private void btnClean_Click(object sender, EventArgs e)
+        {
+            if (!checkForFlywayExist())
+                return;
+            runFlywayClean();
         }
     }
 }

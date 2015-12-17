@@ -62,6 +62,7 @@
             this.migrateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cleanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.switchToMoodleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.progress = new System.Windows.Forms.ProgressBar();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -144,7 +145,7 @@
             // 
             // tbPHPArgs
             // 
-            this.tbPHPArgs.Location = new System.Drawing.Point(12, 262);
+            this.tbPHPArgs.Location = new System.Drawing.Point(624, 73);
             this.tbPHPArgs.Name = "tbPHPArgs";
             this.tbPHPArgs.Size = new System.Drawing.Size(114, 20);
             this.tbPHPArgs.TabIndex = 30;
@@ -152,7 +153,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(132, 64);
+            this.label4.Location = new System.Drawing.Point(15, 93);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 13);
             this.label4.TabIndex = 29;
@@ -171,17 +172,17 @@
             // 
             // tbOutput
             // 
-            this.tbOutput.Location = new System.Drawing.Point(135, 80);
+            this.tbOutput.Location = new System.Drawing.Point(18, 109);
             this.tbOutput.Name = "tbOutput";
             this.tbOutput.ReadOnly = true;
-            this.tbOutput.Size = new System.Drawing.Size(358, 218);
+            this.tbOutput.Size = new System.Drawing.Size(753, 313);
             this.tbOutput.TabIndex = 33;
             this.tbOutput.Text = "";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 285);
+            this.label5.Location = new System.Drawing.Point(621, 51);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(71, 13);
             this.label5.TabIndex = 32;
@@ -190,7 +191,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 61);
+            this.label3.Location = new System.Drawing.Point(15, 72);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 13);
             this.label3.TabIndex = 27;
@@ -198,30 +199,33 @@
             // 
             // btnClean
             // 
-            this.btnClean.Location = new System.Drawing.Point(12, 138);
+            this.btnClean.Location = new System.Drawing.Point(310, 67);
             this.btnClean.Name = "btnClean";
             this.btnClean.Size = new System.Drawing.Size(111, 23);
             this.btnClean.TabIndex = 26;
             this.btnClean.Text = "Clean";
             this.btnClean.UseVisualStyleBackColor = true;
+            this.btnClean.Click += new System.EventHandler(this.btnClean_Click);
             // 
             // btnMigrate
             // 
-            this.btnMigrate.Location = new System.Drawing.Point(12, 109);
+            this.btnMigrate.Location = new System.Drawing.Point(193, 67);
             this.btnMigrate.Name = "btnMigrate";
             this.btnMigrate.Size = new System.Drawing.Size(111, 23);
             this.btnMigrate.TabIndex = 25;
             this.btnMigrate.Text = "Migrate";
             this.btnMigrate.UseVisualStyleBackColor = true;
+            this.btnMigrate.Click += new System.EventHandler(this.btnMigrate_Click);
             // 
             // btnInfo
             // 
-            this.btnInfo.Location = new System.Drawing.Point(12, 80);
+            this.btnInfo.Location = new System.Drawing.Point(76, 67);
             this.btnInfo.Name = "btnInfo";
             this.btnInfo.Size = new System.Drawing.Size(111, 23);
             this.btnInfo.TabIndex = 24;
             this.btnInfo.Text = "Info";
             this.btnInfo.UseVisualStyleBackColor = true;
+            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
             // 
             // btnSelectFlyway
             // 
@@ -262,7 +266,7 @@
             this.switchToMoodleToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(509, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(783, 24);
             this.menuStrip1.TabIndex = 28;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -310,7 +314,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(15, 201);
+            this.comboBox1.Location = new System.Drawing.Point(507, 72);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(111, 21);
             this.comboBox1.TabIndex = 34;
@@ -318,7 +322,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 185);
+            this.label2.Location = new System.Drawing.Point(504, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 13);
             this.label2.TabIndex = 35;
@@ -349,11 +353,20 @@
             this.switchToMoodleToolStripMenuItem1.Text = "Switch to Moodle";
             this.switchToMoodleToolStripMenuItem1.Click += new System.EventHandler(this.switchToMoodleToolStripMenuItem_Click);
             // 
+            // progress
+            // 
+            this.progress.Location = new System.Drawing.Point(507, 25);
+            this.progress.Name = "progress";
+            this.progress.Size = new System.Drawing.Size(276, 23);
+            this.progress.TabIndex = 36;
+            this.progress.Visible = false;
+            // 
             // FlywayForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(509, 314);
+            this.ClientSize = new System.Drawing.Size(783, 434);
+            this.Controls.Add(this.progress);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.tbPHPArgs);
@@ -413,6 +426,7 @@
         private System.Windows.Forms.ToolStripMenuItem migrateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cleanToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem switchToMoodleToolStripMenuItem1;
+        private System.Windows.Forms.ProgressBar progress;
 
     }
 }

@@ -6,6 +6,8 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,6 +24,55 @@ namespace MoodleHelper
         {
             InitializeComponent();
             loadSettings();
+            checkForUpdates();
+        }
+
+        private async void checkForUpdates()
+        {
+            using (WebClient wc = new WebClient())
+            {
+                var versionString = wc.DownloadString("http://android.itachi1706.com/apps/updates/MoodleHelper");
+                string[] versions = versionString.Split('.');
+                int[] intver = new int[versions.Length];
+
+                for (int i = 0; i < versions.Length; i++)
+                {
+                    string ver = versions[i];
+                    int veri;
+                    if (Int32.TryParse(ver, out veri))
+                    {
+                        intver[i] = veri;
+                    }
+                    else
+                    {
+                        intver[i] = 0;
+                    }
+                }
+
+                if (compareVersionAndCheckIfNewer(intver))
+                {
+                    newVersionAvailableToolStripMenuItem.Visible = true;
+                }
+                else
+                {
+                    newVersionAvailableToolStripMenuItem.Visible = false;
+                }
+
+
+            }
+        }
+
+        private bool compareVersionAndCheckIfNewer(int[] serverVersion)
+        {
+            if (serverVersion.Length != 4) return true; // Just make them update
+            Version serverv = new Version(serverVersion[0], serverVersion[1], serverVersion[2], serverVersion[3]);
+            Version version = Assembly.GetExecutingAssembly().GetName().Version;
+
+            if (serverv.Major > version.Major) return true;
+            if (serverv.Minor > version.Minor) return true;
+            if (serverv.Build > version.Build) return true;
+            if (serverv.Revision > version.Revision) return true;
+            return false;
         }
 
         private void loadSettings()
@@ -321,6 +372,19 @@ namespace MoodleHelper
             FlywayForm form = new FlywayForm();
             form.Closed += (s, args) => this.Close();
             form.Show();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Version version = Assembly.GetExecutingAssembly().GetName().Version;
+            string text = String.Format("Moodle Helper \n Version: {0}.{1}.{2}.{3}", version.Major, version.Minor, version.Build, version.Revision);
+            MessageBox.Show(text, "About");
+        }
+
+        private void newVersionAvailableToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/itachi1706/MoodleHelper/releases/latest");
+
         }
     }
 }

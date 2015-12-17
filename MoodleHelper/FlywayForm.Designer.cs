@@ -63,6 +63,8 @@
             this.cleanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.switchToMoodleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.progress = new System.Windows.Forms.ProgressBar();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newVersionAvailableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -263,7 +265,8 @@
             this.actionsToolStripMenuItem,
             this.optionsToolStripMenuItem,
             this.helpToolStripMenuItem,
-            this.switchToMoodleToolStripMenuItem1});
+            this.switchToMoodleToolStripMenuItem1,
+            this.newVersionAvailableToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(783, 24);
@@ -274,6 +277,7 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.settingsToolStripMenuItem,
+            this.aboutToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -324,9 +328,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(504, 51);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 13);
+            this.label2.Size = new System.Drawing.Size(74, 13);
             this.label2.TabIndex = 35;
-            this.label2.Text = "Select Stuff";
+            this.label2.Text = "Select Branch";
             // 
             // infoToolStripMenuItem
             // 
@@ -364,6 +368,21 @@
             this.progress.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progress.TabIndex = 36;
             this.progress.Visible = false;
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // newVersionAvailableToolStripMenuItem
+            // 
+            this.newVersionAvailableToolStripMenuItem.Name = "newVersionAvailableToolStripMenuItem";
+            this.newVersionAvailableToolStripMenuItem.Size = new System.Drawing.Size(138, 20);
+            this.newVersionAvailableToolStripMenuItem.Text = "New Version Available!";
+            this.newVersionAvailableToolStripMenuItem.Visible = false;
+            this.newVersionAvailableToolStripMenuItem.Click += new System.EventHandler(this.newVersionAvailableToolStripMenuItem_Click);
             // 
             // FlywayForm
             // 
@@ -431,6 +450,8 @@
         private System.Windows.Forms.ToolStripMenuItem cleanToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem switchToMoodleToolStripMenuItem1;
         private System.Windows.Forms.ProgressBar progress;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newVersionAvailableToolStripMenuItem;
 
     }
 }

@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -93,29 +94,68 @@ namespace MoodleHelper
             processStartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             processStartInfo.UseShellExecute = false;
             processStartInfo.CreateNoWindow = true;
-            Process process = Process.Start(processStartInfo);
-            string output = string.Empty;
-            string error = string.Empty;
-            progress.Visible = true;
-            using (StreamReader streamreader = process.StandardOutput)
-            {
-                output = streamreader.ReadToEnd();
-            }
-            using (StreamReader streamReader = process.StandardError)
-            {
-                error = streamReader.ReadToEnd();
-            }
+            Process process = new Process();
+            process.StartInfo = processStartInfo;
+            StringBuilder output = new StringBuilder();
+            StringBuilder error = new StringBuilder();
+            Int32 timeout = 21600000;
+            tbOutput.Clear();
 
+            using (AutoResetEvent outputWaitHandle = new AutoResetEvent(false))
+            using (AutoResetEvent errorWaitHandle = new AutoResetEvent(false))
+            {
+                process.OutputDataReceived += (sender, e) =>
+                {
+                    if (e.Data == null)
+                    {
+                        outputWaitHandle.Set();
+                    }
+                    else
+                    {
+                        output.AppendLine(e.Data + "\n");
+                        // Print it to outputbox
+                        tbOutput.AppendText(e.Data + "\n");
+                    }
+                };
+                process.ErrorDataReceived += (sender, e) =>
+                {
+                    if (e.Data == null)
+                    {
+                        errorWaitHandle.Set();
+                    }
+                    else
+                    {
+                        error.AppendLine(e.Data + "\n");
+                        // Print it to outputbox
+                        tbOutput.AppendText(e.Data + "\n");
+                    }
+                };
+
+                progress.Visible = true;
+                process.Start();
+
+                process.BeginOutputReadLine();
+                process.BeginErrorReadLine();
+
+                if (process.WaitForExit(timeout) && outputWaitHandle.WaitOne(timeout) && errorWaitHandle.WaitOne(timeout))
+                {
+                    output.Append("The process finished with exit code: " + process.ExitCode + "\n");
+                }
+                else
+                {
+                    error.Append("Timed Out\n");
+                }
+            }
+            progress.Visible = false;
             string finalOutput = "Command Executed: " + command + "\nCommand Ran At: ";
             finalOutput += process.StartTime.ToString() + "\n";
-            finalOutput += output;
-            if (!string.IsNullOrEmpty(error))
+            finalOutput += output.ToString();
+            if (error.Length != 0)
             {
                 finalOutput += "\nThe following errors are found: \n";
-                finalOutput += error;
+                finalOutput += error.ToString();
             }
             tbOutput.Lines = parseOutput(finalOutput);
-            progress.Visible = false;
             return finalOutput;
         }
 

@@ -333,18 +333,21 @@
             this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
             this.infoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.infoToolStripMenuItem.Text = "Info";
+            this.infoToolStripMenuItem.Click += new System.EventHandler(this.btnInfo_Click);
             // 
             // migrateToolStripMenuItem
             // 
             this.migrateToolStripMenuItem.Name = "migrateToolStripMenuItem";
             this.migrateToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.migrateToolStripMenuItem.Text = "Migrate";
+            this.migrateToolStripMenuItem.Click += new System.EventHandler(this.btnMigrate_Click);
             // 
             // cleanToolStripMenuItem
             // 
             this.cleanToolStripMenuItem.Name = "cleanToolStripMenuItem";
             this.cleanToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.cleanToolStripMenuItem.Text = "Clean";
+            this.cleanToolStripMenuItem.Click += new System.EventHandler(this.btnClean_Click);
             // 
             // switchToMoodleToolStripMenuItem1
             // 
@@ -358,6 +361,7 @@
             this.progress.Location = new System.Drawing.Point(507, 25);
             this.progress.Name = "progress";
             this.progress.Size = new System.Drawing.Size(276, 23);
+            this.progress.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progress.TabIndex = 36;
             this.progress.Visible = false;
             // 

@@ -72,7 +72,11 @@
             this.btnPhpUnitWithArgs = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.tbOutput = new System.Windows.Forms.RichTextBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.processTooltip = new System.Windows.Forms.ToolStripStatusLabel();
+            this.progress = new System.Windows.Forms.ToolStripProgressBar();
             this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -456,11 +460,38 @@
             this.tbOutput.Text = "";
             this.tbOutput.TextChanged += new System.EventHandler(this.tbOutput_TextChanged);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.processTooltip,
+            this.progress});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 282);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(518, 22);
+            this.statusStrip1.TabIndex = 18;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // processTooltip
+            // 
+            this.processTooltip.Name = "processTooltip";
+            this.processTooltip.Size = new System.Drawing.Size(370, 17);
+            this.processTooltip.Spring = true;
+            this.processTooltip.Text = "Ready";
+            this.processTooltip.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // progress
+            // 
+            this.progress.Name = "progress";
+            this.progress.Size = new System.Drawing.Size(100, 16);
+            this.progress.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.progress.Visible = false;
+            // 
             // MoodleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(518, 285);
+            this.ClientSize = new System.Drawing.Size(518, 304);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tbOutput);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnPhpUnitWithArgs);
@@ -483,6 +514,8 @@
             this.Text = "Moodle Helper (Moodle)";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -534,6 +567,9 @@
         private System.Windows.Forms.ToolStripMenuItem switchToFlywayToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newVersionAvailableToolStripMenuItem;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel processTooltip;
+        private System.Windows.Forms.ToolStripProgressBar progress;
     }
 }
 

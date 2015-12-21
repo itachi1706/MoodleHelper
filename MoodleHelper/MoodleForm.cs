@@ -32,24 +32,28 @@ namespace MoodleHelper
         {
             using (WebClient wc = new WebClient())
             {
-                var versionString = wc.DownloadString("http://android.itachi1706.com/apps/updates/MoodleHelper");
-                string[] versions = versionString.Split('.');
-                int[] intver = new int[versions.Length];
-
-                for (int i = 0; i < versions.Length; i++)
+                wc.DownloadStringCompleted += (sender, e) =>
                 {
-                    string ver = versions[i];
-                    int veri;
-                    if (Int32.TryParse(ver, out veri))
+                    string versionString = e.Result;
+                    string[] versions = versionString.Split('.');
+                    int[] intver = new int[versions.Length];
+
+                    for (int i = 0; i < versions.Length; i++)
                     {
-                        intver[i] = veri;
+                        string ver = versions[i];
+                        int veri;
+                        if (Int32.TryParse(ver, out veri))
+                        {
+                            intver[i] = veri;
+                        }
+                        else
+                        {
+                            intver[i] = 0;
+                        }
                     }
-                    else
-                    {
-                        intver[i] = 0;
-                    }
-                }
-                newVersionAvailableToolStripMenuItem.Visible = compareVersionAndCheckIfNewer(intver);
+                    newVersionAvailableToolStripMenuItem.Visible = compareVersionAndCheckIfNewer(intver);
+                };
+                wc.DownloadStringAsync(new Uri("http://android.itachi1706.com/apps/updates/MoodleHelper"));
             }
         }
 
@@ -146,7 +150,8 @@ namespace MoodleHelper
             StringBuilder error = new StringBuilder();
             Int32 timeout = 21600000;
             tbOutput.Clear();
-            //progress.Visible = true;
+            progress.Visible = true;
+            processTooltip.Text = "Executing Command...";
 
             using (AutoResetEvent outputWaitHandle = new AutoResetEvent(false))
             using (AutoResetEvent errorWaitHandle = new AutoResetEvent(false))
@@ -192,7 +197,8 @@ namespace MoodleHelper
                     error.Append("Timed Out\n");
                 }
             }
-            //progress.Visible = false;
+            progress.Visible = false;
+            processTooltip.Text = "Ready";
             string finalOutput = "Command Executed: " + command + "\nCommand Ran At: ";
             finalOutput += process.StartTime.ToString() + "\n";
             finalOutput += output.ToString();

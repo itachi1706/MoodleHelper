@@ -64,8 +64,11 @@
             this.flywayOpen = new System.Windows.Forms.OpenFileDialog();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.progress = new System.Windows.Forms.ProgressBar();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.processTooltip = new System.Windows.Forms.ToolStripStatusLabel();
+            this.progress = new System.Windows.Forms.ToolStripProgressBar();
             this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // optionsToolStripMenuItem
@@ -382,21 +385,40 @@
             this.label2.TabIndex = 35;
             this.label2.Text = "Select Branch";
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.processTooltip,
+            this.progress});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 425);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(783, 22);
+            this.statusStrip1.TabIndex = 37;
+            this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
+            // 
+            // processTooltip
+            // 
+            this.processTooltip.Name = "processTooltip";
+            this.processTooltip.Size = new System.Drawing.Size(635, 17);
+            this.processTooltip.Spring = true;
+            this.processTooltip.Text = "Ready";
+            this.processTooltip.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // progress
             // 
-            this.progress.Location = new System.Drawing.Point(507, 25);
+            this.progress.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.progress.Name = "progress";
-            this.progress.Size = new System.Drawing.Size(276, 23);
+            this.progress.Size = new System.Drawing.Size(100, 16);
             this.progress.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.progress.TabIndex = 36;
             this.progress.Visible = false;
             // 
             // FlywayForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(783, 434);
-            this.Controls.Add(this.progress);
+            this.ClientSize = new System.Drawing.Size(783, 447);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.tbPHPArgs);
@@ -415,6 +437,8 @@
             this.Text = "Moodle Helper (Flyway)";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -456,9 +480,11 @@
         private System.Windows.Forms.ToolStripMenuItem migrateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cleanToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem switchToMoodleToolStripMenuItem1;
-        private System.Windows.Forms.ProgressBar progress;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newVersionAvailableToolStripMenuItem;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel processTooltip;
+        private System.Windows.Forms.ToolStripProgressBar progress;
 
     }
 }

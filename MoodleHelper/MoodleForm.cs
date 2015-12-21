@@ -9,6 +9,7 @@ using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -129,37 +130,78 @@ namespace MoodleHelper
             return true;
         }
 
-        private string startCommandPrompt(string command)
+        private async void startCommandPrompt(string command)
         {
             ProcessStartInfo processStartInfo = new ProcessStartInfo();
             processStartInfo.FileName = "cmd";
             processStartInfo.Arguments = command;
             processStartInfo.RedirectStandardError = true;
             processStartInfo.RedirectStandardOutput = true;
-            processStartInfo.WindowStyle = ProcessWindowStyle.Normal;
+            processStartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             processStartInfo.UseShellExecute = false;
-            Process process = Process.Start(processStartInfo);
-            string output = string.Empty;
-            string error = string.Empty;
-            using (StreamReader streamreader = process.StandardOutput)
-            {
-                output = streamreader.ReadToEnd();
-            }
-            using (StreamReader streamReader = process.StandardError)
-            {
-                error = streamReader.ReadToEnd();
-            }
+            processStartInfo.CreateNoWindow = true;
+            Process process = new Process();
+            process.StartInfo = processStartInfo;
+            StringBuilder output = new StringBuilder();
+            StringBuilder error = new StringBuilder();
+            Int32 timeout = 21600000;
+            tbOutput.Clear();
+            //progress.Visible = true;
 
+            using (AutoResetEvent outputWaitHandle = new AutoResetEvent(false))
+            using (AutoResetEvent errorWaitHandle = new AutoResetEvent(false))
+            {
+                process.OutputDataReceived += (sender, e) =>
+                {
+                    if (e.Data == null)
+                    {
+                        outputWaitHandle.Set();
+                    }
+                    else
+                    {
+                        output.AppendLine(e.Data + "\n");
+                        // Print it to outputbox
+                        tbOutput.AppendText(e.Data + "\n");
+                    }
+                };
+                process.ErrorDataReceived += (sender, e) =>
+                {
+                    if (e.Data == null)
+                    {
+                        errorWaitHandle.Set();
+                    }
+                    else
+                    {
+                        error.AppendLine(e.Data + "\n");
+                        // Print it to outputbox
+                        tbOutput.AppendText(e.Data + "\n");
+                    }
+                };
+
+                process.Start();
+
+                process.BeginOutputReadLine();
+                process.BeginErrorReadLine();
+
+                if (process.WaitForExit(timeout) && outputWaitHandle.WaitOne(timeout) && errorWaitHandle.WaitOne(timeout))
+                {
+                    output.Append("The process finished with exit code: " + process.ExitCode + "\n");
+                }
+                else
+                {
+                    error.Append("Timed Out\n");
+                }
+            }
+            //progress.Visible = false;
             string finalOutput = "Command Executed: " + command + "\nCommand Ran At: ";
             finalOutput += process.StartTime.ToString() + "\n";
-            finalOutput += output;
-            if (!string.IsNullOrEmpty(error))
+            finalOutput += output.ToString();
+            if (error.Length != 0)
             {
                 finalOutput += "\nThe following errors are found: \n";
-                finalOutput += error;
+                finalOutput += error.ToString();
             }
             tbOutput.Lines = parseOutput(finalOutput);
-            return finalOutput;
         }
 
         private string[] parseOutput(string output)
@@ -375,6 +417,12 @@ namespace MoodleHelper
         {
             System.Diagnostics.Process.Start("https://github.com/itachi1706/MoodleHelper/releases/latest");
 
+        }
+
+        private void tbOutput_TextChanged(object sender, EventArgs e)
+        {
+            tbOutput.SelectionStart = tbOutput.Text.Length;
+            tbOutput.ScrollToCaret();
         }
     }
 }

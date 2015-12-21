@@ -53,18 +53,18 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.flywayOpen = new System.Windows.Forms.OpenFileDialog();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.migrateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cleanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.switchToMoodleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.progress = new System.Windows.Forms.ProgressBar();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newVersionAvailableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.flywayOpen = new System.Windows.Forms.OpenFileDialog();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.progress = new System.Windows.Forms.ProgressBar();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,7 +97,7 @@
             // enabledToolStripMenuItem
             // 
             this.enabledToolStripMenuItem.Name = "enabledToolStripMenuItem";
-            this.enabledToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.enabledToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.enabledToolStripMenuItem.Text = "Enabled";
             this.enabledToolStripMenuItem.ToolTipText = "Kills the console when its finished its task";
             this.enabledToolStripMenuItem.Click += new System.EventHandler(this.enabledToolStripMenuItem_Click);
@@ -105,7 +105,7 @@
             // disabledToolStripMenuItem
             // 
             this.disabledToolStripMenuItem.Name = "disabledToolStripMenuItem";
-            this.disabledToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.disabledToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.disabledToolStripMenuItem.Text = "Disabled";
             this.disabledToolStripMenuItem.ToolTipText = "Don\'t kill the console window when the task has been executed";
             this.disabledToolStripMenuItem.Click += new System.EventHandler(this.disabledToolStripMenuItem_Click);
@@ -183,6 +183,7 @@
             this.tbOutput.Size = new System.Drawing.Size(753, 313);
             this.tbOutput.TabIndex = 33;
             this.tbOutput.Text = "";
+            this.tbOutput.TextChanged += new System.EventHandler(this.tbOutput_TextChanged);
             // 
             // label5
             // 
@@ -289,15 +290,22 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.settingsToolStripMenuItem.Text = "Reset Settings";
             this.settingsToolStripMenuItem.ToolTipText = "Resets Settings to factory default";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.ToolTipText = "Exits the application";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
@@ -312,10 +320,45 @@
             this.actionsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.actionsToolStripMenuItem.Text = "Actions";
             // 
+            // infoToolStripMenuItem
+            // 
+            this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
+            this.infoToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.infoToolStripMenuItem.Text = "Info";
+            this.infoToolStripMenuItem.Click += new System.EventHandler(this.btnInfo_Click);
+            // 
+            // migrateToolStripMenuItem
+            // 
+            this.migrateToolStripMenuItem.Name = "migrateToolStripMenuItem";
+            this.migrateToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.migrateToolStripMenuItem.Text = "Migrate";
+            this.migrateToolStripMenuItem.Click += new System.EventHandler(this.btnMigrate_Click);
+            // 
+            // cleanToolStripMenuItem
+            // 
+            this.cleanToolStripMenuItem.Name = "cleanToolStripMenuItem";
+            this.cleanToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.cleanToolStripMenuItem.Text = "Clean";
+            this.cleanToolStripMenuItem.Click += new System.EventHandler(this.btnClean_Click);
+            // 
+            // switchToMoodleToolStripMenuItem1
+            // 
+            this.switchToMoodleToolStripMenuItem1.Name = "switchToMoodleToolStripMenuItem1";
+            this.switchToMoodleToolStripMenuItem1.Size = new System.Drawing.Size(112, 20);
+            this.switchToMoodleToolStripMenuItem1.Text = "Switch to Moodle";
+            this.switchToMoodleToolStripMenuItem1.Click += new System.EventHandler(this.switchToMoodleToolStripMenuItem_Click);
+            // 
+            // newVersionAvailableToolStripMenuItem
+            // 
+            this.newVersionAvailableToolStripMenuItem.Name = "newVersionAvailableToolStripMenuItem";
+            this.newVersionAvailableToolStripMenuItem.Size = new System.Drawing.Size(138, 20);
+            this.newVersionAvailableToolStripMenuItem.Text = "New Version Available!";
+            this.newVersionAvailableToolStripMenuItem.Visible = false;
+            this.newVersionAvailableToolStripMenuItem.Click += new System.EventHandler(this.newVersionAvailableToolStripMenuItem_Click);
+            // 
             // flywayOpen
             // 
-            this.flywayOpen.DefaultExt = "exe";
-            this.flywayOpen.Filter = "Flyway Executable (*.exe)|*.exe|All Files|*.*";
+            this.flywayOpen.Filter = "Flyway Executable|*.*|Bat File (.bat)|*.bat|All Files|*.*";
             this.flywayOpen.Title = "Select the Flyway Executable";
             // 
             // comboBox1
@@ -339,34 +382,6 @@
             this.label2.TabIndex = 35;
             this.label2.Text = "Select Branch";
             // 
-            // infoToolStripMenuItem
-            // 
-            this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
-            this.infoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.infoToolStripMenuItem.Text = "Info";
-            this.infoToolStripMenuItem.Click += new System.EventHandler(this.btnInfo_Click);
-            // 
-            // migrateToolStripMenuItem
-            // 
-            this.migrateToolStripMenuItem.Name = "migrateToolStripMenuItem";
-            this.migrateToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.migrateToolStripMenuItem.Text = "Migrate";
-            this.migrateToolStripMenuItem.Click += new System.EventHandler(this.btnMigrate_Click);
-            // 
-            // cleanToolStripMenuItem
-            // 
-            this.cleanToolStripMenuItem.Name = "cleanToolStripMenuItem";
-            this.cleanToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.cleanToolStripMenuItem.Text = "Clean";
-            this.cleanToolStripMenuItem.Click += new System.EventHandler(this.btnClean_Click);
-            // 
-            // switchToMoodleToolStripMenuItem1
-            // 
-            this.switchToMoodleToolStripMenuItem1.Name = "switchToMoodleToolStripMenuItem1";
-            this.switchToMoodleToolStripMenuItem1.Size = new System.Drawing.Size(112, 20);
-            this.switchToMoodleToolStripMenuItem1.Text = "Switch to Moodle";
-            this.switchToMoodleToolStripMenuItem1.Click += new System.EventHandler(this.switchToMoodleToolStripMenuItem_Click);
-            // 
             // progress
             // 
             this.progress.Location = new System.Drawing.Point(507, 25);
@@ -375,21 +390,6 @@
             this.progress.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progress.TabIndex = 36;
             this.progress.Visible = false;
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
-            // newVersionAvailableToolStripMenuItem
-            // 
-            this.newVersionAvailableToolStripMenuItem.Name = "newVersionAvailableToolStripMenuItem";
-            this.newVersionAvailableToolStripMenuItem.Size = new System.Drawing.Size(138, 20);
-            this.newVersionAvailableToolStripMenuItem.Text = "New Version Available!";
-            this.newVersionAvailableToolStripMenuItem.Visible = false;
-            this.newVersionAvailableToolStripMenuItem.Click += new System.EventHandler(this.newVersionAvailableToolStripMenuItem_Click);
             // 
             // FlywayForm
             // 

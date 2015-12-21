@@ -126,7 +126,7 @@ namespace MoodleHelper
             return true;
         }
 
-        private string startCommandPrompt(string command)
+        private async void startCommandPrompt(string command)
         {
             ProcessStartInfo processStartInfo = new ProcessStartInfo();
             processStartInfo.FileName = "cmd";
@@ -198,7 +198,6 @@ namespace MoodleHelper
                 finalOutput += error.ToString();
             }
             tbOutput.Lines = parseOutput(finalOutput);
-            return finalOutput;
         }
 
         private string[] parseOutput(string output)
@@ -352,6 +351,12 @@ namespace MoodleHelper
         private void newVersionAvailableToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/itachi1706/MoodleHelper/releases/latest");
+        }
+
+        private void tbOutput_TextChanged(object sender, EventArgs e)
+        {
+            tbOutput.SelectionStart = tbOutput.Text.Length;
+            tbOutput.ScrollToCaret();
         }
     }
 }

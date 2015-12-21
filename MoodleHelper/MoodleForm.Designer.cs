@@ -43,6 +43,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.purgeCacheToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,13 +66,12 @@
             this.pHPUnitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pHPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.switchToFlywayToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.newVersionAvailableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label4 = new System.Windows.Forms.Label();
             this.tbPHPArgs = new System.Windows.Forms.TextBox();
             this.btnPhpUnitWithArgs = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.tbOutput = new System.Windows.Forms.RichTextBox();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newVersionAvailableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -210,15 +210,22 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.settingsToolStripMenuItem.Text = "Reset Settings";
             this.settingsToolStripMenuItem.ToolTipText = "Resets Settings to factory default";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.ToolTipText = "Exits the application";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
@@ -396,6 +403,14 @@
             this.switchToFlywayToolStripMenuItem1.Text = "Switch to Flyway";
             this.switchToFlywayToolStripMenuItem1.Click += new System.EventHandler(this.switchToFlywayToolStripMenuItem_Click);
             // 
+            // newVersionAvailableToolStripMenuItem
+            // 
+            this.newVersionAvailableToolStripMenuItem.Name = "newVersionAvailableToolStripMenuItem";
+            this.newVersionAvailableToolStripMenuItem.Size = new System.Drawing.Size(138, 20);
+            this.newVersionAvailableToolStripMenuItem.Text = "New Version Available!";
+            this.newVersionAvailableToolStripMenuItem.Visible = false;
+            this.newVersionAvailableToolStripMenuItem.Click += new System.EventHandler(this.newVersionAvailableToolStripMenuItem_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -439,21 +454,7 @@
             this.tbOutput.Size = new System.Drawing.Size(371, 156);
             this.tbOutput.TabIndex = 17;
             this.tbOutput.Text = "";
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
-            // newVersionAvailableToolStripMenuItem
-            // 
-            this.newVersionAvailableToolStripMenuItem.Name = "newVersionAvailableToolStripMenuItem";
-            this.newVersionAvailableToolStripMenuItem.Size = new System.Drawing.Size(138, 20);
-            this.newVersionAvailableToolStripMenuItem.Text = "New Version Available!";
-            this.newVersionAvailableToolStripMenuItem.Visible = false;
-            this.newVersionAvailableToolStripMenuItem.Click += new System.EventHandler(this.newVersionAvailableToolStripMenuItem_Click);
+            this.tbOutput.TextChanged += new System.EventHandler(this.tbOutput_TextChanged);
             // 
             // MoodleForm
             // 

@@ -35,24 +35,31 @@ namespace MoodleHelper
             {
                 wc.DownloadStringCompleted += (sender, e) =>
                 {
-                    string versionString = e.Result;
-                    string[] versions = versionString.Split('.');
-                    int[] intver = new int[versions.Length];
-
-                    for (int i = 0; i < versions.Length; i++)
+                    if (e.Error != null)
                     {
-                        string ver = versions[i];
-                        int veri;
-                        if (Int32.TryParse(ver, out veri))
-                        {
-                            intver[i] = veri;
-                        }
-                        else
-                        {
-                            intver[i] = 0;
-                        }
+                        processTooltip.Text = "Update Checker Timed Out :(";
                     }
-                    newVersionAvailableToolStripMenuItem.Visible = compareVersionAndCheckIfNewer(intver);
+                    else
+                    {
+                        string versionString = e.Result;
+                        string[] versions = versionString.Split('.');
+                        int[] intver = new int[versions.Length];
+
+                        for (int i = 0; i < versions.Length; i++)
+                        {
+                            string ver = versions[i];
+                            int veri;
+                            if (Int32.TryParse(ver, out veri))
+                            {
+                                intver[i] = veri;
+                            }
+                            else
+                            {
+                                intver[i] = 0;
+                            }
+                        }
+                        newVersionAvailableToolStripMenuItem.Visible = compareVersionAndCheckIfNewer(intver);
+                    }
                 };
                 wc.DownloadStringAsync(new Uri("http://android.itachi1706.com/apps/updates/MoodleHelper"));
             }
